@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Everywhere",
+  "version": "1.6.2",
+  "description": "Modo oscuro en páginas web (inversión inteligente, compatible con Chrome/Edge).",
+  "minimum_chrome_version": "109",
+  "icons": {
+    "16": "Icon.png",
+    "32": "Icon.png",
+    "48": "Icon.png",
+    "128": "Icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Dark Everywhere",
+    "default_icon": {
+      "16": "Icon.png",
+      "32": "Icon.png",
+      "48": "Icon.png",
+      "128": "Icon.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["constants.js", "storage-adapter.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-dark-mode": {
+      "suggested_key": {
+        "default": "Alt+Shift+D",
+        "mac": "Alt+Shift+D"
+      },
+      "description": "Activar o desactivar modo oscuro"
+    }
+  }
+}

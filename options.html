@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dark Everywhere — Opciones</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Configuración</p>
+      <h1>Dark Everywhere</h1>
+      <p class="lead">Almacenamiento, exclusiones por dominio y atajos del teclado.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Almacenamiento (empresa / privacidad)</h2>
+      <p class="muted">
+        Si tu organización no quiere sincronizar ajustes con la cuenta de Chrome, activa solo almacenamiento
+        local. Los datos siguen en el navegador; no se envían a servidores de la extensión (esta extensión no
+        usa red).
+      </p>
+      <label class="check-row">
+        <input type="checkbox" id="storageLocalOnly" />
+        <span>Solo almacenamiento local (sin sincronización entre dispositivos)</span>
+      </label>
+      <p id="storageHint" class="muted hint-secondary"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Sitios excluidos</h2>
+      <p class="muted">
+        Una línea por dominio. No se aplicará el modo oscuro en estas URLs. Usa
+        <code>*.ejemplo.com</code> para incluir subdominios.
+      </p>
+      <textarea
+        id="excluded"
+        rows="12"
+        spellcheck="false"
+        placeholder="github.com&#10;*.google.com&#10;notion.so"
+        aria-label="Lista de dominios excluidos"
+      ></textarea>
+      <div class="actions">
+        <button type="button" id="save" class="btn primary">Guardar</button>
+        <span id="status" class="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Atajos de teclado</h2>
+      <p class="muted">
+        Los atajos se configuran en la página de Chrome (no se pueden cambiar desde la extensión por
+        políticas del navegador).
+      </p>
+      <button type="button" id="openShortcuts" class="btn secondary">Abrir atajos de extensiones</button>
+    </section>
+
+    <p class="foot muted">Brillo y contraste se ajustan desde el popup de la extensión.</p>
+  </div>
+  <script src="constants.js"></script>
+  <script src="storage-adapter.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
