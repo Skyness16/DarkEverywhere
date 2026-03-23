@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles/popup.css" />
+</head>
+<body>
+  <header class="banner">
+    <span class="banner-badge">Extensión</span>
+    <h1>Dark Everywhere</h1>
+    <p>Menos brillo en la pantalla, mismo sitio. Ajustes guardados en la nube.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-label="Activar">
+      <div class="switch-row">
+        <span class="switch-label">Modo oscuro</span>
+        <label class="switch" title="Activar o desactivar">
+          <input type="checkbox" id="toggle" />
+          <span class="slider" aria-hidden="true"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Perfiles">
+      <h2 class="card-title">Perfil</h2>
+      <div class="profiles" id="profiles" role="group" aria-label="Perfiles de brillo"></div>
+    </section>
+
+    <section class="card" aria-label="Ajuste fino">
+      <h2 class="card-title">Ajuste fino</h2>
+      <div class="slider-block" id="sliderWrap">
+        <label>
+          <span>Brillo (menos luz)</span>
+          <span class="val" id="brightnessVal">—</span>
+        </label>
+        <input type="range" id="brightness" min="70" max="100" step="1" />
+      </div>
+      <div class="slider-block" id="sliderWrap2">
+        <label>
+          <span>Contraste</span>
+          <span class="val" id="contrastVal">—</span>
+        </label>
+        <input type="range" id="contrast" min="95" max="115" step="1" />
+      </div>
+    </section>
+
+    <div class="footer">
+      <p class="hint">
+        Los cambios se aplican solas en las pestañas abiertas. Atajo:
+        <kbd id="shortcutHint">Alt+Shift+D</kbd>
+      </p>
+      <a href="#" id="openShortcuts">Personalizar atajos en Chrome</a>
+      <a href="#" id="openOptions">Sitios excluidos y opciones avanzadas →</a>
+    </div>
+  </main>
+
+  <script src="../scripts/shared/constants.js"></script>
+  <script src="../scripts/shared/storage-adapter.js"></script>
+  <script src="../scripts/popup/popup.js"></script>
+</body>
+</html>

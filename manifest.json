@@ -5,36 +5,40 @@
   "description": "Modo oscuro en páginas web (inversión inteligente, compatible con Chrome/Edge).",
   "minimum_chrome_version": "109",
   "icons": {
-    "16": "Icon.png",
-    "32": "Icon.png",
-    "48": "Icon.png",
-    "128": "Icon.png"
+    "16": "assets/icon.png",
+    "32": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "pages/popup.html",
     "default_title": "Dark Everywhere",
     "default_icon": {
-      "16": "Icon.png",
-      "32": "Icon.png",
-      "48": "Icon.png",
-      "128": "Icon.png"
+      "16": "assets/icon.png",
+      "32": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
     }
   },
   "options_ui": {
-    "page": "options.html",
+    "page": "pages/options.html",
     "open_in_tab": true
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["constants.js", "storage-adapter.js", "content.js"],
+      "js": [
+        "scripts/shared/constants.js",
+        "scripts/shared/storage-adapter.js",
+        "scripts/content/content.js"
+      ],
       "run_at": "document_start",
       "all_frames": true
     }
   ],
   "permissions": ["storage"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "scripts/background/background.js"
   },
   "commands": {
     "toggle-dark-mode": {
